@@ -1,0 +1,29 @@
+import UIKit
+
+class ViewController: UIViewController {
+    @IBOutlet weak var TitleLabel:UILabel!
+    @IBOutlet weak var LoginTextField:UITextField!
+    @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var LoginButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        LoginButton.setTitleColor(.red, for: .normal)
+        LoginButton.setTitleColor(.yellow, for: [.highlighted, .selected])
+        LoginButton.addTarget(self, action: #selector(login(sender:)), for: .touchUpInside)
+    }
+
+    @IBAction func login(sender: UIButton){
+    }
+    @IBAction func endEditting(sender: UITextField){
+        if LoginTextField == sender {
+            print("Login: \(String(describing: sender.text))")
+            PasswordTextField.becomeFirstResponder()
+        }
+        else {
+        print("Password: \(String(describing: sender.text))")        }
+    }
+    
+}
